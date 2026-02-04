@@ -1,0 +1,23 @@
+%{
+#include <stdio.h>
+#include <stdlib.h>
+%}
+
+%%
+
+[_a-zA-Z][_a-zA-Z0-9]*   { printf("Valid identifier\n"); }
+.+                      { printf("Not a valid identifier\n"); }
+
+%%
+
+int yywrap()
+{
+    return 1;
+}
+
+int main()
+{
+    printf("Enter a string: ");
+    yylex();
+    return 0;
+}
